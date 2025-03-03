@@ -1,0 +1,77 @@
+buildscript {
+    repositories {
+        gradlePluginPortal()
+    }
+    dependencies {
+        classpath "io.jmix.gradle:jmix-gradle-plugin:2.4.4"
+    }
+}
+
+group = 'dev.qubik'
+version = '0.0.5'
+
+subprojects {
+    apply plugin: 'java-library'
+    apply plugin: 'maven-publish'
+    apply plugin: 'io.jmix'
+
+    repositories {
+        mavenCentral()
+        maven {
+            url 'https://global.repo.jmix.io/repository/public'
+        }
+        maven {
+            url 'http://192.168.88.251:30001/repository/qubik/'  // Репозиторий Nexus для получения зависимостей
+            allowInsecureProtocol = true  // Разрешить небезопасный протокол
+        }
+    }
+
+    jmix {
+        bomVersion = '2.4.4'
+        projectId = 'coreui'
+    }
+
+    group = this.group
+    version = this.version
+
+    def props = new Properties()
+    buildFile.withInputStream { props.load(it) }
+    def subArchivesBaseName = props.getProperty('archivesBaseName')
+    def archName = subArchivesBaseName.substring(1, subArchivesBaseName.length() - 1)
+
+    java {
+        withSourcesJar()
+    }
+
+    artifacts {
+        archives sourcesJar
+    }
+
+    publishing {
+        repositories {
+            maven {
+                url "http://192.168.88.251:30001/repository/qubik/"  // Репозиторий для публикации
+                credentials {
+                    username rootProject.hasProperty('uploadUser') ? rootProject['uploadUser'] : 'qubik'
+                    password rootProject.hasProperty('uploadPassword') ? rootProject['uploadPassword'] : 'zxcvzxcv'
+                }
+                allowInsecureProtocol = true  // Разрешить небезопасный протокол
+            }
+        }
+        publications {
+            javaMaven(MavenPublication) {
+                artifactId = archName
+                from components.java
+            }
+        }
+    }
+
+    // remove after https://youtrack.jetbrains.com/issue/IDEA-227215 is fixed
+    tasks.withType(GenerateModuleMetadata) {
+        enabled = false
+    }
+
+    project.tasks.withType(JavaCompile).configureEach {
+        options.compilerArgs.add("-parameters")
+    }
+}
