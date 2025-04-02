@@ -51,7 +51,7 @@ subprojects {
             maven {
                 url "https://repo.thedevs.ru/repository/thedevs/"  // Репозиторий для публикации
                 credentials {
-                    username rootProject.hasProperty('uploadUser') ? rootProject['uploadUser'] : 'qubik'
+                    username rootProject.hasProperty('uploadUser') ? rootProject['uploadUser'] : 'thedevs'
                     password rootProject.hasProperty('uploadPassword') ? rootProject['uploadPassword'] : 'zxcvzxcv'
                 }
             }
