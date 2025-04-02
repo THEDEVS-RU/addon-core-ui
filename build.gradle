@@ -3,12 +3,12 @@ buildscript {
         gradlePluginPortal()
     }
     dependencies {
-        classpath "io.jmix.gradle:jmix-gradle-plugin:2.4.4"
+        classpath 'io.jmix.gradle:jmix-gradle-plugin:2.4.5'
     }
 }
 
-group = 'dev.qubik'
-version = '0.0.5'
+group = 'ru.thedevs'
+version = '0.0.1'
 
 subprojects {
     apply plugin: 'java-library'
@@ -21,13 +21,12 @@ subprojects {
             url 'https://global.repo.jmix.io/repository/public'
         }
         maven {
-            url 'http://192.168.88.251:30001/repository/qubik/'  // Репозиторий Nexus для получения зависимостей
-            allowInsecureProtocol = true  // Разрешить небезопасный протокол
+            url 'https://repo.thedevs.ru/repository/thedevs/'
         }
     }
 
     jmix {
-        bomVersion = '2.4.4'
+        bomVersion = '2.4.5'
         projectId = 'coreui'
     }
 
@@ -50,12 +49,11 @@ subprojects {
     publishing {
         repositories {
             maven {
-                url "http://192.168.88.251:30001/repository/qubik/"  // Репозиторий для публикации
+                url "https://repo.thedevs.ru/repository/thedevs/"  // Репозиторий для публикации
                 credentials {
                     username rootProject.hasProperty('uploadUser') ? rootProject['uploadUser'] : 'qubik'
                     password rootProject.hasProperty('uploadPassword') ? rootProject['uploadPassword'] : 'zxcvzxcv'
                 }
-                allowInsecureProtocol = true  // Разрешить небезопасный протокол
             }
         }
         publications {

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      xmlns:c="http://jmix.io/schema/flowui/jpql-condition"
+      title="msg://phoneListView.title"
+      focusComponent="phonesDataGrid">
+    <data>
+        <collection id="phonesDc"
+                    class="ru.thedevs.entity.Phone">
+            <fetchPlan extends="_base">
+                <property name="unit" fetchPlan="_base"/>
+            </fetchPlan>
+            <loader id="phonesDl" readOnly="true">
+                <query>
+                    <![CDATA[select e from Phone e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <urlQueryParameters>
+            <genericFilter component="genericFilter"/>
+            <pagination component="pagination"/>
+        </urlQueryParameters>
+    </facets>
+    <actions>
+        <action id="selectAction" type="lookup_select"/>
+        <action id="discardAction" type="lookup_discard"/>
+    </actions>
+    <layout>
+        <genericFilter id="genericFilter"
+                       dataLoader="phonesDl">
+            <properties include=".*"/>
+        </genericFilter>
+        <hbox id="buttonsPanel" classNames="buttons-panel">
+            <button id="editButton" action="phonesDataGrid.edit" visible="false"/>
+            <button id="exportButton" action="phonesDataGrid.excel" icon="vaadin:file-table"/>
+            <button id="blockButton" text="msg://blockBtn.caption" enabled="false"/>
+            <button id="removeButton" action="phonesDataGrid.remove"/>
+            <button id="multiCreateBtn" text="msg://multiCreateBtn.caption" icon="vaadin:copy" enabled="false"/>
+            <button id="updateStatusPhoneBtn" text="msg://updateStatusPhoneBtn.caption" icon="REFRESH" enabled="false"/>
+            <simplePagination id="pagination" dataLoader="phonesDl"/>
+        </hbox>
+        <dataGrid id="phonesDataGrid"
+                  width="100%"
+                  minHeight="20em"
+                  dataContainer="phonesDc"
+                  columnReorderingAllowed="true">
+            <actions>
+                <action id="create" type="list_create"/>
+                <action id="edit" type="list_edit"/>
+                <action id="remove" type="list_remove"/>
+                <action id="excel" type="grdexp_excelExport"/>
+            </actions>
+            <columns>
+                <column key="num" header="#"/>
+                <column key="number">
+                    <numberRenderer numberFormat="+7##########"/>
+                </column>
+                <column property="unit"/>
+                <column property="blockDate"/>
+                <column property="blockReason"/>
+                <column property="tenant"/>
+            </columns>
+        </dataGrid>
+        <hbox id="lookupActions" visible="false">
+            <button id="selectButton" action="selectAction"/>
+            <button id="discardButton" action="discardAction"/>
+        </hbox>
+    </layout>
+</view>

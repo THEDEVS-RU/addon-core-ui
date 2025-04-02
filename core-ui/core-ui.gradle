@@ -5,7 +5,7 @@ dependencies {
     implementation 'io.jmix.data:jmix-eclipselink-starter'
     implementation 'io.jmix.flowui:jmix-flowui-starter'
     implementation 'io.jmix.flowui:jmix-flowui-themes'
-    implementation 'dev.qubik:core:0.1.20'
+    implementation 'ru.thedevs:core:0.0.2'
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
@@ -13,6 +13,10 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-web'
 
     testRuntimeOnly 'org.hsqldb:hsqldb'
+    api 'io.jmix.charts:jmix-charts-flowui-starter'
+    api 'io.jmix.gridexport:jmix-gridexport-flowui-starter'
+    api 'io.jmix.multitenancy:jmix-multitenancy-starter'
+    api 'io.jmix.multitenancy:jmix-multitenancy-flowui-starter'
 }
 
 configurations.implementation {
