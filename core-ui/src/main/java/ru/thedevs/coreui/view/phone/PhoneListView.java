@@ -25,7 +25,7 @@ import java.io.IOException;
 import java.text.ParseException;
 
 
-@Route(value = "phones", layout = DefaultMainViewParent.class)
+@Route(value = "phone", layout = DefaultMainViewParent.class)
 @ViewController(id = "Phone.list")
 @ViewDescriptor(path = "phone-list-view.xml")
 @LookupComponent("phonesDataGrid")
