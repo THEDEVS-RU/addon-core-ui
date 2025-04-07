@@ -110,15 +110,15 @@ public class PhoneListView extends StandardListView<Phone> {
         }
     }
 
-    @Install(to = "phonesDataGrid", subject = "styleProvider")
-    protected String phoneTableStyleProvider(Phone phone, String property) {
-        if (property == null) {
-            if (!phone.getActive()) {
-                return StyleName.STRIKE_THROUGH.getId();
-            }
-        }
-        return null;
-    }
+//    @Install(to = "phonesDataGrid", subject = "styleProvider")
+//    protected String phoneTableStyleProvider(Phone phone, String property) {
+//        if (property == null) {
+//            if (!phone.getActive()) {
+//                return StyleName.STRIKE_THROUGH.getId();
+//            }
+//        }
+//        return null;
+//    }
 
     private void showNotify(String key) {
         notifications.create("phoneChangedStatus", messages.getMessage(key))
