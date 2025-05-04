@@ -35,7 +35,7 @@
         <hbox id="buttonsPanel" classNames="buttons-panel">
             <button id="editButton" action="phonesDataGrid.edit" visible="false"/>
             <button id="exportButton" action="phonesDataGrid.excel" icon="vaadin:file-table"/>
-            <button id="blockButton" text="msg://blockBtn.caption" enabled="false"/>
+            <button id="blockButton" text="msg://blockBtn.caption" enabled="false" icon="vaadin:ban"/>
             <button id="removeButton" action="phonesDataGrid.remove"/>
             <button id="multiCreateBtn" text="msg://multiCreateBtn.caption" icon="vaadin:copy" enabled="false"/>
             <button id="updateStatusPhoneBtn" text="msg://updateStatusPhoneBtn.caption" icon="REFRESH" enabled="false"/>
@@ -54,13 +54,13 @@
             </actions>
             <columns>
                 <column key="num" header="#"/>
-                <column key="number">
+                <column property="number">
                     <numberRenderer numberFormat="+7##########"/>
                 </column>
                 <column property="unit"/>
                 <column property="blockDate"/>
                 <column property="blockReason"/>
-                <column property="tenant"/>
+                <column property="tenant" visible="false"/>
             </columns>
         </dataGrid>
         <hbox id="lookupActions" visible="false">

@@ -3,12 +3,12 @@ buildscript {
         gradlePluginPortal()
     }
     dependencies {
-        classpath 'io.jmix.gradle:jmix-gradle-plugin:2.4.5'
+        classpath 'io.jmix.gradle:jmix-gradle-plugin:2.5.1'
     }
 }
 
 group = 'ru.thedevs'
-version = '0.0.6'
+version = '0.0.9'
 
 subprojects {
     apply plugin: 'java-library'
@@ -26,7 +26,7 @@ subprojects {
     }
 
     jmix {
-        bomVersion = '2.4.5'
+        bomVersion = '2.5.1'
         projectId = 'coreui'
     }
 

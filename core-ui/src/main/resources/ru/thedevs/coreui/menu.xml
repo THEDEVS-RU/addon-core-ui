@@ -8,6 +8,8 @@
               title="msg://ru.thedevs.coreui.view.coststatistics/costStatisticsListView.title"/>
         <item view="CostStatisticPart.list"
               title="msg://ru.thedevs.coreui.view.coststatistics.coststatisticpart/costStatisticPartListView.title"/>
+        <item view="coreui_Multiaddphonefromiccid"
+              title="msg://ru.thedevs.coreui.view.phone.multiaddphonefromiccid/multiaddphonefromiccid.title"/>
     </menu>
 
 </menu-config>

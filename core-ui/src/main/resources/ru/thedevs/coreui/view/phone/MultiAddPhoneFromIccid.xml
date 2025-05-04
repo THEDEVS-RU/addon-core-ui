@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      title="msg://multiaddphonefromiccid.title">
+    <data>
+        <collection id="phonesDc" class="ru.thedevs.entity.Phone"/>
+        <instance id="tenantDc" class="io.jmix.multitenancy.entity.Tenant">
+            <fetchPlan extends="_base"/>
+            <loader id="tenantDl"/>
+        </instance>
+    </data>
+    <layout>
+        <hbox classNames="buttons-panel">
+            <button id="phonesTableExcelExportBtn" action="phonesTable.excelExport"/>
+            <button id="phonesTableRefreshBtn" action="phonesTable.refresh"/>
+            <button id="phonesTableRemoveBtn" icon="vaadin:close" title="msg://phonesTableRemoveBtn1.caption"/>
+            <textField id="iccidValue" helperText="msg://iccidValue.inputPrompt" maxLength="21"
+                       valueChangeMode="EAGER"/>
+        </hbox>
+        <dataGrid id="phonesTable" height="100%" width="100%" dataContainer="phonesDc" selectionMode="MULTI">
+            <actions>
+                <action id="excelExport" type="excelExport"/>
+                <action id="refresh" type="refresh"/>
+            </actions>
+            <columns>
+                <column property="number">
+                    <numberRenderer numberFormat="+7##########"/>
+                </column>
+            </columns>
+        </dataGrid>
+        <hbox alignSelf="CENTER">
+            <entitySuggestionField id="ownerPicker" dataContainer="tenantDc" property="tenantId"
+                                   minSearchStringLength="2"
+                                   suggestionsLimit="10" caption="msg://ownerPicker.caption" align="MIDDLE_CENTER"
+                                   captionProperty="tenantId"
+                                   inputPrompt="&#1053;&#1072;&#1095;&#1085;&#1080;&#1090;&#1077; &#1074;&#1074;&#1086;&#1076;&#1080;&#1090;&#1100; &#1082;&#1086;&#1084;&#1087;&#1072;&#1085;&#1080;&#1102;.."
+                                   asyncSearchDelayMs="200">
+                <actions>
+                    <action id="entityClear" type="entity_clear"/>
+                </actions>
+                <query entityClass="io.jmix.multitenancy.entity.Tenant"
+                       escapeValueForLike="true"
+                       searchStringFormat="%${searchString}%">
+                    select c from mten_Tenant c where lower(c.tenantId) like lower(:searchString) escape '\'
+                </query>
+            </entitySuggestionField>
+            <button id="saveAndCommitBtn" title="msg://saveAndCommitBtn.caption" alignSelf="CENTER"/>
+        </hbox>
+    </layout>
+</view>

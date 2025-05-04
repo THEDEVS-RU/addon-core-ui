@@ -3,9 +3,9 @@
       xmlns:c="http://jmix.io/schema/flowui/jpql-condition"
       title="msg://costStatisticsListView.title"
       focusComponent="costStatisticsesDataGrid">
-    <data>
+    <data readOnly="true">
         <collection id="costStatisticsesDc"
-                    class="ru.thedevs.entity.CostStatistics">
+                    class="ru.thedevs.entity.CostStatistics" >
             <fetchPlan extends="_base">
                 <property name="phone" fetchPlan="_instance_name"/>
             </fetchPlan>
@@ -33,6 +33,8 @@
             <properties include=".*"/>
         </genericFilter>
         <hbox id="buttonsPanel" classNames="buttons-panel">
+
+            <button id="uploadByExcel" text="msg://uploadByExcel.text" icon="vaadin:upload-alt"/>
             <button id="excelExportButton" action="costStatisticsesDataGrid.excelExport"/>
             <button id="removeButton" action="costStatisticsesDataGrid.remove"/>
             <simplePagination id="pagination" dataLoader="costStatisticsesDl"/>
@@ -48,13 +50,14 @@
                 <action id="remove" type="list_remove"/>
             </actions>
             <columns resizable="true">
-                <column property="surcharge"/>
                 <column property="month"/>
-                <column property="year"/>
-                <column property="total"/>
-                <column property="createdBy"/>
+                <column property="year" visible="false"/>
                 <column property="phone"/>
+                <column property="phone.unit"/>
                 <column property="tenant"/>
+                <column property="total">
+                    <aggregation type="SUM"/>
+                </column>
             </columns>
         </dataGrid>
         <hbox id="lookupActions" visible="false">
