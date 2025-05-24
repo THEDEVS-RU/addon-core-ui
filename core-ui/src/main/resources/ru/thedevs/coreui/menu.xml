@@ -2,6 +2,7 @@
 <menu-config xmlns="http://jmix.io/schema/flowui/menu">
 
     <menu id="coreui" title="msg://ru.thedevs.coreui/menu.addon">
+        <item view="BaseUser.list" title="msg://ru.thedevs.coreui.view.user/UserListView.title"/>
         <item view="Token.list" title="msg://ru.thedevs.coreui.view.token/tokenListView.title"/>
         <item view="Phone.list" title="msg://ru.thedevs.coreui.view.phone/phoneListView.title"/>
         <item view="CostStatistics.list"
