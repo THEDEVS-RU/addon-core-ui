@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      title="msg://monitoringView.title">
+    <layout expand="mainHbox" classNames="bg-contrast-10">
+        <hbox id="mainHbox" height="100%" width="100%">
+            <vbox id="tableBox" margin="false" padding="false" width="50%">
+                <fragment id="unitListFragment" class="ru.thedevs.justgps.view.unitlistfragment.UnitListFragment"/>
+                <fragment id="routeListFragment" class="ru.thedevs.justgps.view.routelistfragment.RouteListFragment"
+                          visible="false"/>
+            </vbox>
+            <vbox id="mapBox" height="100%" width="50%" padding="false" margin="false">
+                <fragment id="mapBrowserFragment" class="ru.thedevs.justgps.view.mapbrowser.MapBrowserFragment"/>
+            </vbox>
+        </hbox>
+    </layout>
+</view>

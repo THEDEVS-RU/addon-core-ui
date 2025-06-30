@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      title="msg://registrationView.title">
+    <layout classNames="jmix-login-main-layout">
+        <vbox id="registerWrapper" width="100%">
+            <vbox id="loginMainBox"
+                  alignItems="CENTER"
+                  margin="true"
+                  classNames="jmix-login-panel"
+                  width="AUTO">
+                <vbox alignSelf="START" classNames="login-logo">
+                    <hbox alignSelf="CENTER" classNames="login-logo">
+                        <h4 id="name" text="msg:///name.value" classNames="logo-screen-name"/>
+                        <h4 id="name2" text="msg:///name2.value" classNames="logo-screen-name2"/>
+                    </hbox>
+                </vbox>
+                <vbox id="registerForm"
+                      classNames="jmix-login-form">
+                    <textField id="loginField" label="msg:///loginField.caption" required="true"
+                               errorMessage="msg://loginField.conversionErrorMessage" datatype="string">
+                        <validators>
+                            <regexp regexp="[A-Za-z0-9А-Яа-я]*"/>
+                        </validators>
+                    </textField>
+                    <h4 id="loginExistsMessage" text="msg://loginExistsMessage.value" visible="false"
+                        classNames="failure"/>
+                    <passwordField id="passwordField" label="msg://passwordField.caption" required="true"/>
+                    <passwordField id="retryPasswordField" label="msg:///retryPasswordField.caption" required="true"/>
+                    <h4 id="passwordNotMatchMessage" text="msg:///passwordNotMatchMessage.value" visible="false"
+                        classNames="failure"/>
+                    <textField id="emailField" label="msg:///emailField.caption" required="true"
+                               errorMessage="msg://emailField.conversionErrorMessage" datatype="string">
+                        <validators>
+                            <email/>
+                        </validators>
+                    </textField>
+                    <button id="registerBtn" text="msg:///registerButton.caption" alignSelf="CENTER" enabled="false"/>
+                </vbox>
+            </vbox>
+        </vbox>
+
+    </layout></view>

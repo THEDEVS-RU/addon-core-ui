@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      title="msg://additionalDataDetailView.title"
+      focusComponent="form">
+    <data>
+        <instance id="additionalDataDc"
+                  class="ru.thedevs.entity.AdditionalData">
+            <fetchPlan extends="_base"/>
+            <loader id="additionalDataDl"/>
+        </instance>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+    </facets>
+    <actions>
+        <action id="saveAction" type="detail_saveClose"/>
+        <action id="closeAction" type="detail_close"/>
+    </actions>
+    <layout>
+        <formLayout id="form" dataContainer="additionalDataDc">
+            <responsiveSteps>
+                <responsiveStep minWidth="0" columns="1"/>
+                <responsiveStep minWidth="40em" columns="2"/>
+            </responsiveSteps>
+            <textField id="dinField" property="din"/>
+            <textField id="doutField" property="dout"/>
+            <textField id="timestampField" property="timestamp"/>
+            <textField id="peerField" property="peer"/>
+            <textField id="batteryVoltageField" property="battery.voltage"/>
+            <textField id="channelIdField" property="channel.id"/>
+            <textField id="engineMotorHoursField" property="engine.motorHours"/>
+            <textField id="engineRpmField" property="engine.rpm"/>
+            <checkbox id="engineStatusField" property="engine.status"/>
+            <textField id="engineTemperatureField" property="engine.temperature"/>
+            <textField id="gsmMccField" property="gsm.mcc"/>
+            <textField id="gsmMncField" property="gsm.mnc"/>
+            <textField id="llsTemperature2Field" property="lls.temperature2"/>
+            <textField id="llsTemperature3Field" property="lls.temperature3"/>
+            <textField id="llsValue2Field" property="lls.value2"/>
+            <textField id="llsValue3Field" property="lls.value3"/>
+            <textField id="vehicleMileageField" property="vehicle.mileage"/>
+            <textField id="vehicleSpeedField" property="vehicle.speed"/>
+            <textField id="serverTimestampField" property="server.timestamp"/>
+            <textField id="logNumberField" property="log.number"/>
+            <checkbox id="lightsStatusField" property="lights.status"/>
+            <checkbox id="webastoStatusField" property="webasto.status"/>
+            <checkbox id="movementStatusField" property="movement.status"/>
+            <checkbox id="ignitionStatusField" property="ignition.status"/>
+            <checkbox id="trunkStatusField" property="trunk.status"/>
+            <textField id="pedalLevelField" property="pedal.level"/>
+            <textField id="fuelVolumeField" property="fuel.volume"/>
+            <checkbox id="handbrakeStatusField" property="handbrake.status"/>
+            <checkbox id="lowStatusField" property="low.status"/>
+            <checkbox id="hoodStatusField" property="hood.status"/>
+            <checkbox id="remoteStatusField" property="remote.status"/>
+        </formLayout>
+        <hbox id="detailActions">
+            <button id="saveAndCloseButton" action="saveAction"/>
+            <button id="closeButton" action="closeAction"/>
+        </hbox>
+    </layout>
+</view>

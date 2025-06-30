@@ -8,7 +8,7 @@ import io.jmix.flowui.view.ViewController;
 import io.jmix.flowui.view.ViewDescriptor;
 
 @Route(value = "MultiAddPhoneFromIccid", layout = DefaultMainViewParent.class)
-@ViewController(id = "coreui_Multiaddphonefromiccid")
+@ViewController(id = "Multiaddphonefromiccid")
 @ViewDescriptor(path = "MultiAddPhoneFromIccid.xml")
 public class Multiaddphonefromiccid extends StandardView {
 }
