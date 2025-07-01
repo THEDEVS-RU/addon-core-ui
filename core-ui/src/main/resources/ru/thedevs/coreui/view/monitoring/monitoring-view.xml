@@ -4,12 +4,12 @@
     <layout expand="mainHbox" classNames="bg-contrast-10">
         <hbox id="mainHbox" height="100%" width="100%">
             <vbox id="tableBox" margin="false" padding="false" width="50%">
-                <fragment id="unitListFragment" class="ru.thedevs.justgps.view.unitlistfragment.UnitListFragment"/>
-                <fragment id="routeListFragment" class="ru.thedevs.justgps.view.routelistfragment.RouteListFragment"
+                <fragment id="unitListFragment" class="ru.thedevs.coreui.view.fragment.unit_list_fragment.UnitListFragment"/>
+                <fragment id="routeListFragment" class="ru.thedevs.coreui.view.fragment.route_list_fragment.RouteListFragment"
                           visible="false"/>
             </vbox>
             <vbox id="mapBox" height="100%" width="50%" padding="false" margin="false">
-                <fragment id="mapBrowserFragment" class="ru.thedevs.justgps.view.mapbrowser.MapBrowserFragment"/>
+                <fragment id="mapBrowserFragment" class="ru.thedevs.coreui.view.fragment.map_browser_fragment.MapBrowserFragment"/>
             </vbox>
         </hbox>
     </layout>

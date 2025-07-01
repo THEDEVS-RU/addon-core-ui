@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <menu-config xmlns="http://jmix.io/schema/flowui/menu">
+    <item view="MonitoringView" title="msg://ru.thedevs.coreui.view.monitoring/monitoringView.title"/>
 
     <menu id="coreui" title="msg://ru.thedevs.coreui/menu.addon">
         <item view="BaseUser.list" title="msg://ru.thedevs.coreui.view.user/UserListView.title"/>
@@ -11,7 +12,7 @@
               title="msg://ru.thedevs.coreui.view.coststatistics.coststatisticpart/costStatisticPartListView.title"/>
         <item view="Multiaddphonefromiccid"
               title="msg://ru.thedevs.coreui.view.phone.multiaddphonefromiccid/multiaddphonefromiccid.title"/>
-        <item view="MonitoringView" title="msg://ru.thedevs.coreui.view.monitoring/monitoringView.title"/>
+
         <item view="ApiLog.list" title="msg://ru.thedevs.coreui.view.apilog/apiLogListView.title"/>
         <item view="Setting.list" title="msg://ru.thedevs.coreui.view.setting/settingListView.title"/>
     </menu>

@@ -7,6 +7,7 @@ import io.jmix.flowui.view.Subscribe;
 import io.jmix.flowui.view.Target;
 import io.jmix.flowui.view.View;
 import io.jmix.flowui.view.ViewComponent;
+import ru.thedevs.integration.yandex.map.component.YandexMap;
 
 @FragmentDescriptor("map-browser-fragment.xml")
 public class MapBrowserFragment extends Fragment<VerticalLayout> {
@@ -26,7 +27,7 @@ public class MapBrowserFragment extends Fragment<VerticalLayout> {
 //        mapState.setCenter(center);
 //        mapState.setLink(mapBuilder.getYandexMapLink());
 
-//        YandexMap map = new YandexMap();
+        YandexMap map = new YandexMap();
 //
 //        map.setWidthFull();
 //        map.setHeightFull();
@@ -34,6 +35,6 @@ public class MapBrowserFragment extends Fragment<VerticalLayout> {
 
 //        map.getElement().setPropertyBean("data", mapState);
 
-//        yandexMapContainer.add(map);
+        yandexMapContainer.add(map);
     }
 }
