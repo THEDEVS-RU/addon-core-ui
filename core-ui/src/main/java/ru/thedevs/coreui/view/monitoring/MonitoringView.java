@@ -29,18 +29,20 @@ public class MonitoringView extends StandardView {
 
     public void showRouteBrowse(Unit unit) throws IOException {
 
-        //todo fix map painting
-//        mapBrowserFragment.setNewMarkers(null);
+        mapBrowserFragment.setNewMarkers(null);
         unitListFragment.setVisible(false);
         routeListFragment.setUnit(unit);
         routeListFragment.setVisible(true);
     }
 
     public void showUserBrowse() {
-        //todo fix map painting
-//        mapBrowserFragment.setRoutes(null);
+        mapBrowserFragment.setRoutes(null);
         unitListFragment.setVisible(true);
         routeListFragment.setVisible(false);
+    }
+
+    public MapBrowserFragment getMapBrowserFragment() {
+        return mapBrowserFragment;
     }
 
     @EventListener

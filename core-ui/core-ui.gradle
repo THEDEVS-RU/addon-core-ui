@@ -7,8 +7,8 @@ dependencies {
     testImplementation 'io.jmix.flowui:jmix-flowui-test-assist'
     implementation 'io.jmix.flowui:jmix-flowui-themes'
 
-    implementation 'ru.thedevs:core:latest'
-    implementation 'ru.thedevs.integration.yandex:yandexmapapi:2.5.1.0.5'
+    implementation 'ru.thedevs:core:2.5.1.1.0'
+    implementation 'ru.thedevs.integration.yandex:yandexmapapi:2.5.1.1.0'
 
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
