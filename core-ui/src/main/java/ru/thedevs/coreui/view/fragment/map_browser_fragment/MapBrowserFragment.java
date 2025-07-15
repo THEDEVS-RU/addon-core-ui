@@ -16,45 +16,57 @@ import ru.thedevs.integration.yandex.map.component.YandexMap;
 import ru.thedevs.integration.yandex.map.entity.MapState;
 import ru.thedevs.utils.interfaces.IYandexMapBuilder;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.ExecutionException;
 
 @FragmentDescriptor("map-browser-fragment.xml")
 public class MapBrowserFragment extends Fragment<VerticalLayout> {
 
     @ViewComponent
     private VerticalLayout yandexMapContainer;
+
     @Autowired
     private DataManager dataManager;
+
     @Autowired
     private IYandexMapBuilder mapBuilder;
-    YandexMap map = null;
+
+    private YandexMap map = null;
+    private MapState state = new MapState();
+
     @Subscribe(target = Target.HOST_CONTROLLER)
     public void onHostInit(final View.InitEvent event) {
 
-        MapState mapState = new MapState();
-        mapState.setZoom(MapUtils.DEFAULT_ZOOM);
-        mapState.setCenter(MapUtils.getCenter(mapState));
-        mapState.setLink(mapBuilder.getYandexMapLink());
+        state = new MapState();
+        state.setZoom(MapUtils.DEFAULT_ZOOM);
+        state.setCenter(MapUtils.getCenter(state));
+        state.setLink(mapBuilder.getYandexMapLink());
 
-        map = new YandexMap(mapState);
+        map = new YandexMap(state);
         yandexMapContainer.add(map);
     }
 
     public void setNewMarkers(List<Unit> units) {
-        MapState mapState = new MapState();
-        MapUtils.convertUnitsToMapStateInfo(mapState, units);
-        map.setMapState(mapState);
+        MapUtils.convertUnitsToMapStateInfo(state, units);
+        if (units != null) {
+            state.setZoom(state.getZoom() - units.size());
+        }
+        map.setMapState(state);
+
     }
 
     public void setRoutes(Set<Route> routes) {
-        MapState mapState = new MapState();
-        mapState.setPolylines(null);
-        mapState.setPoints(null);
-        if (routes != null)
+        if (routes != null) {
             for (Route route : routes) {
-                MapUtils.convertRouteToMapStateInfo(mapState, route);
+                MapUtils.convertRouteToMapStateInfo(state, route);
             }
-        map.setMapState(mapState);
+
+        } else {
+            state.setPolylines(new ArrayList<>());
+        }
+
+        map.setMapState(state);
     }
 }

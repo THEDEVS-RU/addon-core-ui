@@ -28,11 +28,13 @@
                 <button id="removeButton" action="unitsDataGrid.remove"
                         enabled="false"/>
                 <button id="unitsTableExcelExportButton" action="unitsDataGrid.excelExport" text="Excel"/>
+                <button id="hideThisButton" text="hide tab"/>
             </hbox>
             <dataGrid id="unitsDataGrid"
                       width="100%"
                       dataContainer="unitsDc"
                       classNames="unit-browse"
+                      selectionMode="MULTI"
                       emptyStateText="msg://unitsTable.emptyStateMessage">
                 <actions>
                     <action id="create" type="list_create" actionVariant="PRIMARY"/>

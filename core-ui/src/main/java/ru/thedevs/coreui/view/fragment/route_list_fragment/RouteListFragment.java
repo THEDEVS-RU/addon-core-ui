@@ -15,7 +15,6 @@ import io.jmix.flowui.view.Target;
 import io.jmix.flowui.view.View;
 import io.jmix.flowui.view.ViewComponent;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import ru.thedevs.coreui.view.fragment.map_browser_fragment.MapBrowserFragment;
 import ru.thedevs.coreui.view.monitoring.MonitoringView;
 import ru.thedevs.entity.Route;
@@ -75,7 +74,7 @@ public class RouteListFragment extends Fragment<VerticalLayout> {
     @Subscribe(id = "backButton", subject = "clickListener")
     public void onBackButtonClick(final ClickEvent<JmixButton> event) {
         if (getParentController() instanceof MonitoringView parent) {
-            parent.showUserBrowse();
+            parent.showUnitsBrowse();
         }
     }
 

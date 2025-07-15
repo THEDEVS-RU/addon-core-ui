@@ -5,6 +5,7 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.data.renderer.ComponentRenderer;
 import com.vaadin.flow.data.renderer.Renderer;
+import io.jmix.core.DataManager;
 import io.jmix.flowui.DialogWindows;
 import io.jmix.flowui.component.grid.DataGrid;
 import io.jmix.flowui.fragment.Fragment;
@@ -19,11 +20,13 @@ import io.jmix.flowui.view.ViewComponent;
 import org.springframework.beans.factory.annotation.Autowired;
 import ru.thedevs.coreui.UiUtils;
 import ru.thedevs.coreui.view.additionaldata.AdditionalDataListView;
+import ru.thedevs.coreui.view.fragment.map_browser_fragment.MapBrowserFragment;
 import ru.thedevs.coreui.view.monitoring.MonitoringView;
 import ru.thedevs.coreui.view.unitcommand.UnitCommandListView;
 import ru.thedevs.entity.Unit;
 
 import java.io.IOException;
+import java.util.List;
 
 @FragmentDescriptor("unit-list-fragment.xml")
 public class UnitListFragment extends Fragment<VerticalLayout> {
@@ -47,8 +50,14 @@ public class UnitListFragment extends Fragment<VerticalLayout> {
     @Autowired
     private UiUtils uiUtils;
 
+    private MapBrowserFragment mapBrowserFragment;
+    @Autowired
+    private DataManager dataManager;
+
     @Subscribe
     public void onReady(final ReadyEvent event) {
+
+        mapBrowserFragment = ((MonitoringView) getParentController()).getMapBrowserFragment();
 
         unitsDl.load();
 
@@ -59,11 +68,15 @@ public class UnitListFragment extends Fragment<VerticalLayout> {
             routesButton.setEnabled(unit != null);
             commandsButton.setEnabled(unit != null);
         });
+
+    }
+
+    public List<Unit> getInitialUnits() {
+        return unitsDc.getItems();
     }
 
     @Subscribe(id = "commandsButton", subject = "clickListener")
     public void onCommandsButtonClick(final ClickEvent<JmixButton> event) {
-        Unit selected = unitsDc.getItem();
         Unit unit = unitsDataGrid.getSingleSelectedItem();
         if (unit != null) {
             if (getParentController() instanceof MonitoringView parent) {
@@ -123,8 +136,6 @@ public class UnitListFragment extends Fragment<VerticalLayout> {
 
     @Subscribe("unitsDataGrid.remove")
     public void onUnitsDataGridRemove(final ActionPerformedEvent event) {
-        Unit unit = unitsDataGrid.getSingleSelectedItem();
-
         //todo add entity removal logic here when flespi implemented
 
         //        try {
@@ -135,5 +146,10 @@ public class UnitListFragment extends Fragment<VerticalLayout> {
 //        } catch (Exception e) {
 //            e.printStackTrace();
 //        }
+    }
+
+    @Subscribe(id = "hideThisButton", subject = "clickListener")
+    public void onHideThisButtonClick(final ClickEvent<JmixButton> event) {
+        getElement().setVisible(false);
     }
 }

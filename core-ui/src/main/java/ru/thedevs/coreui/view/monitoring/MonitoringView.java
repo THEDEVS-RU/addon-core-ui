@@ -1,5 +1,6 @@
 package ru.thedevs.coreui.view.monitoring;
 
+import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 import io.jmix.flowui.view.*;
@@ -10,7 +11,7 @@ import ru.thedevs.coreui.view.fragment.map_browser_fragment.MapBrowserFragment;
 import ru.thedevs.entity.Unit;
 import ru.thedevs.entity.events.RouteUpdateEvent;
 
-import java.io.IOException;
+import java.util.List;
 
 @Route(value = "monitoring-view", layout = DefaultMainViewParent.class)
 @ViewController(id = "MonitoringView")
@@ -27,22 +28,28 @@ public class MonitoringView extends StandardView {
     @ViewComponent
     private VerticalLayout tableBox;
 
-    public void showRouteBrowse(Unit unit) throws IOException {
+    public MapBrowserFragment getMapBrowserFragment() {
+        return mapBrowserFragment;
+    }
 
+    @Subscribe
+    public void onBeforeShow(final BeforeShowEvent event) {
+        List<Unit> initialUnits = unitListFragment.getInitialUnits();
+        mapBrowserFragment.setNewMarkers(initialUnits);
+    }
+
+    public void showRouteBrowse(Unit unit) {
         mapBrowserFragment.setNewMarkers(null);
-        unitListFragment.setVisible(false);
+        Component unitBrowse = getContent().getComponent("unitListFragment");
+        unitBrowse.setVisible(false);
         routeListFragment.setUnit(unit);
         routeListFragment.setVisible(true);
     }
 
-    public void showUserBrowse() {
+    public void showUnitsBrowse() {
         mapBrowserFragment.setRoutes(null);
         unitListFragment.setVisible(true);
         routeListFragment.setVisible(false);
-    }
-
-    public MapBrowserFragment getMapBrowserFragment() {
-        return mapBrowserFragment;
     }
 
     @EventListener

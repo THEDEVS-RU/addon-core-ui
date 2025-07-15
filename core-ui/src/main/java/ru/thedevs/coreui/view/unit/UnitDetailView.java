@@ -11,14 +11,14 @@ import io.jmix.flowui.model.DataContext;
 import io.jmix.flowui.model.InstanceContainer;
 import io.jmix.flowui.view.*;
 import io.jmix.multitenancy.entity.Tenant;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import ru.thedevs.entity.AdditionalData;
 import ru.thedevs.entity.Token;
 import ru.thedevs.entity.Unit;
-import ru.thedevs.entity.embeddable.Device;
-import ru.thedevs.entity.embeddable.Engine;
-import ru.thedevs.entity.embeddable.Protocol;
-import ru.thedevs.entity.embeddable.Type;
+import ru.thedevs.entity.embeddable.*;
+
+import java.util.Random;
 
 @Route(value = "units/:id", layout = DefaultMainViewParent.class)
 @ViewController(id = "Unit.detail")
@@ -36,6 +36,9 @@ public class UnitDetailView extends StandardDetailView<Unit> {
     // todo basic stub for entity creation
     @Subscribe
     public void onInitEntity(final InitEntityEvent<Unit> event) {
+
+        Random random = new Random();
+
         identField.setReadOnly(false);
 //        deviceSF.setVisible(true);
         nameField.setReadOnly(false);
@@ -56,17 +59,26 @@ public class UnitDetailView extends StandardDetailView<Unit> {
         created.setAdditional(additionalData);
 
         Protocol protocol = dataContext.create(Protocol.class);
-        protocol.setId(123L);
+        protocol.setId(random.nextLong());
         created.setProtocol(protocol);
 
         Device device = dataContext.create(Device.class);
-        device.setName("my device");
+        device.setName(RandomStringUtils.randomAlphabetic(7));
+        device.setId(random.nextLong());
         device.setType(dataContext.create(Type.class));
         created.setDevice(device);
 
-        Tenant tenant = dataContext.create(Tenant.class);
-        tenant.setName("newTenant");
-        tenant.setTenantId("newTenant");
+        Position position = dataContext.create(Position.class);
+        position.setLongitude(random.nextDouble(50, 70));
+        position.setLatitude(random.nextDouble(25, 40));
+        position.setValid(true);
+
+        created.setPosition(position);
+
+
+//        Tenant tenant = dataContext.create(Tenant.class);
+//        tenant.setName("newTenant");
+//        tenant.setTenantId("newTenant");
 
         //todo check access
 //        if (!UiUtils.checkIsDealer(currentAuthentication)) {
