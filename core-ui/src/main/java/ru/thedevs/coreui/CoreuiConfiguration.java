@@ -16,7 +16,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import ru.thedevs.CoreConfiguration;
-import ru.thedevs.integration.yandex.map.YAMConfiguration;
 import java.util.Collections;
 
 @Configuration
@@ -27,8 +26,7 @@ import java.util.Collections;
         CoreConfiguration.class,
         ChartsFlowuiConfiguration.class,
         GridExportFlowuiConfiguration.class,
-        MultitenancyFlowuiConfiguration.class,
-        YAMConfiguration.class})
+        MultitenancyFlowuiConfiguration.class})
 @PropertySource(name = "ru.thedevs.coreui", value = "classpath:/ru/thedevs/coreui/module.properties")
 public class CoreuiConfiguration {
 
