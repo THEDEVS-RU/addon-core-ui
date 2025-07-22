@@ -3,7 +3,7 @@ buildscript {
         gradlePluginPortal()
     }
     dependencies {
-        classpath 'io.jmix.gradle:jmix-gradle-plugin:2.5.1'
+        classpath 'io.jmix.gradle:jmix-gradle-plugin:2.6.0'
     }
 }
 
@@ -26,7 +26,7 @@ subprojects {
     }
 
     jmix {
-        bomVersion = '2.5.1'
+        bomVersion = '2.6.0'
         projectId = 'coreui'
     }
 
