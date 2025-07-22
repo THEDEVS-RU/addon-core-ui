@@ -10,6 +10,8 @@
         <item view="CostStatisticPart.list"
               title="msg://ru.thedevs.coreui.view.coststatistics.coststatisticpart/costStatisticPartListView.title"/>
         <item view="Setting.list" title="msg://ru.thedevs.coreui.view.setting/settingListView.title"/>
+        <item view="Multiaddphonefromiccid"
+              title="msg://ru.thedevs.coreui.view.phone.multiaddphonefromiccid/multiaddphonefromiccid.title"/>
     </menu>
 
 </menu-config>
