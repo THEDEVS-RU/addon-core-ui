@@ -14,7 +14,7 @@ import io.jmix.flowui.component.validation.ValidationErrors;
 import io.jmix.flowui.kit.component.button.JmixButton;
 import io.jmix.flowui.view.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import ru.thedevs.entity.BaseUser;
+import ru.thedevs.entities.BaseUser;
 
 import java.util.Objects;
 

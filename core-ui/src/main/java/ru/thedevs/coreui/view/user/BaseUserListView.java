@@ -1,7 +1,7 @@
 package ru.thedevs.coreui.view.user;
 
 import com.vaadin.flow.router.Route;
-import ru.thedevs.entity.BaseUser;
+import ru.thedevs.entities.BaseUser;
 import io.jmix.flowui.view.*;
 
 @Route(value = "BaseUser", layout = DefaultMainViewParent.class)

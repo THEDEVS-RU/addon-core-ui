@@ -3,7 +3,7 @@ package ru.thedevs.coreui.view.user;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.textfield.PasswordField;
 import com.vaadin.flow.router.Route;
-import ru.thedevs.entity.BaseUser;
+import ru.thedevs.entities.BaseUser;
 import io.jmix.core.EntityStates;
 import io.jmix.flowui.component.checkbox.JmixCheckbox;
 import io.jmix.flowui.component.textfield.TypedTextField;

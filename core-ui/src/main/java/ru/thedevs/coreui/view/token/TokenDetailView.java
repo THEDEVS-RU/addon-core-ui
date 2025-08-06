@@ -1,7 +1,7 @@
 package ru.thedevs.coreui.view.token;
 
 import com.vaadin.flow.router.Route;
-import ru.thedevs.entity.Token;
+import ru.thedevs.entities.Token;
 import io.jmix.flowui.view.*;
 
 @Route(value = "tokens/:id", layout = DefaultMainViewParent.class)

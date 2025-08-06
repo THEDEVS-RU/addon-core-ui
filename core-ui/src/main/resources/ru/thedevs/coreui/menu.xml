@@ -5,11 +5,8 @@
         <item view="BaseUser.list" title="msg://ru.thedevs.coreui.view.user/UserListView.title"/>
         <item view="Token.list" title="msg://ru.thedevs.coreui.view.token/tokenListView.title"/>
         <item view="Phone.list" title="msg://ru.thedevs.coreui.view.phone/phoneListView.title"/>
-        <item view="CostStatistics.list"
-              title="msg://ru.thedevs.coreui.view.coststatistics/costStatisticsListView.title"/>
         <item view="CostStatisticPart.list"
               title="msg://ru.thedevs.coreui.view.coststatistics.coststatisticpart/costStatisticPartListView.title"/>
-        <item view="Setting.list" title="msg://ru.thedevs.coreui.view.setting/settingListView.title"/>
         <item view="Multiaddphonefromiccid"
               title="msg://ru.thedevs.coreui.view.phone.multiaddphonefromiccid/multiaddphonefromiccid.title"/>
     </menu>

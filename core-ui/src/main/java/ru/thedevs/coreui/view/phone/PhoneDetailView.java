@@ -1,7 +1,7 @@
 package ru.thedevs.coreui.view.phone;
 
 import com.vaadin.flow.router.Route;
-import ru.thedevs.entity.Phone;
+import ru.thedevs.entities.Phone;
 import io.jmix.flowui.view.*;
 
 @Route(value = "phones/:id", layout = DefaultMainViewParent.class)

@@ -1,7 +1,7 @@
 package ru.thedevs.coreui.view.currency;
 
 import com.vaadin.flow.router.Route;
-import ru.thedevs.entity.Currency;
+import ru.thedevs.entities.Currency;
 import io.jmix.flowui.view.*;
 
 

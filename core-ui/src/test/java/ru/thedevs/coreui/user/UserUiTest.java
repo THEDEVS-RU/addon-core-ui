@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import ru.thedevs.coreui.view.user.BaseUserListView;
-import ru.thedevs.entity.BaseUser;
+import ru.thedevs.entities.BaseUser;
 
 /**
  * Sample UI integration test for the User entity.
