@@ -5,7 +5,7 @@
       focusComponent="phonesDataGrid">
     <data>
         <collection id="phonesDc"
-                    class="ru.thedevs.entity.Phone">
+                    class="ru.thedevs.entities.Phone">
             <fetchPlan extends="_base">
                 <property name="unit" fetchPlan="_instance_name"/>
             </fetchPlan>

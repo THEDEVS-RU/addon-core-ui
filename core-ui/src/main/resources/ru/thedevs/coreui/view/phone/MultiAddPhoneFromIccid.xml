@@ -2,7 +2,7 @@
 <view xmlns="http://jmix.io/schema/flowui/view"
       title="msg://multiaddphonefromiccid.title">
     <data>
-        <collection id="phonesDc" class="ru.thedevs.entity.Phone"/>
+        <collection id="phonesDc" class="ru.thedevs.entities.Phone"/>
         <instance id="tenantDc" class="io.jmix.multitenancy.entity.Tenant">
             <fetchPlan extends="_base"/>
             <loader id="tenantDl"/>

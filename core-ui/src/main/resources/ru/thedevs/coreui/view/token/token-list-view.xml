@@ -5,7 +5,7 @@
       focusComponent="tokensDataGrid">
     <data>
         <collection id="tokensDc"
-                    class="ru.thedevs.entity.Token">
+                    class="ru.thedevs.entities.Token">
             <fetchPlan extends="_base"/>
             <loader id="tokensDl" readOnly="true">
                 <query>

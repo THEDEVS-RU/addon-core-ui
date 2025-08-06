@@ -4,7 +4,7 @@
       focusComponent="form">
     <data>
         <instance id="baseCurrencyDc"
-                  class="ru.thedevs.entity.Currency">
+                  class="ru.thedevs.entities.Currency">
             <fetchPlan extends="_base"/>
             <loader id="baseCurrencyDl"/>
         </instance>

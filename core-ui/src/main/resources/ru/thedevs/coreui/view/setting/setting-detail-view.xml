@@ -4,7 +4,7 @@
       focusComponent="form">
     <data>
         <instance id="settingDc"
-                  class="ru.thedevs.entity.Setting">
+                  class="ru.thedevs.entities.Setting">
             <fetchPlan extends="_base"/>
             <loader id="settingDl"/>
         </instance>

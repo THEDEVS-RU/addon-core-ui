@@ -4,7 +4,7 @@
       focusComponent="form">
     <data>
         <instance id="tokenDc"
-                  class="ru.thedevs.entity.Token">
+                  class="ru.thedevs.entities.Token">
             <fetchPlan extends="_base"/>
             <loader id="tokenDl"/>
         </instance>

@@ -4,7 +4,7 @@
       focusComponent="baseCurrenciesDataGrid">
     <data>
         <collection id="baseCurrenciesDc"
-                    class="ru.thedevs.entity.Currency">
+                    class="ru.thedevs.entities.Currency">
             <fetchPlan extends="_base"/>
             <loader id="baseCurrenciesDl" readOnly="true">
                 <query>

@@ -3,7 +3,7 @@
       title="msg://UserListView.title"
       focusComponent="usersDataGrid">
     <data>
-        <collection id="usersDc" class="ru.thedevs.entity.BaseUser">
+        <collection id="usersDc" class="ru.thedevs.entities.BaseUser">
             <fetchPlan extends="_base"/>
             <loader id="usersDl" readOnly="true">
                 <query>

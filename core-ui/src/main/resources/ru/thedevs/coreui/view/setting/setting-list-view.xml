@@ -5,7 +5,7 @@
       focusComponent="settingsDataGrid">
     <data>
         <collection id="settingsDc"
-                    class="ru.thedevs.entity.Setting">
+                    class="ru.thedevs.entities.Setting">
             <fetchPlan extends="_base"/>
             <loader id="settingsDl" readOnly="true">
                 <query>

@@ -4,7 +4,7 @@
       focusComponent="form">
     <data>
         <instance id="userDc"
-                  class="ru.thedevs.entity.BaseUser">
+                  class="ru.thedevs.entities.BaseUser">
             <fetchPlan extends="_base"/>
             <loader/>
         </instance>
@@ -23,9 +23,9 @@
             <textField id="PhoneField" property="phone"/>
             <passwordField id="passwordField"
                            required="true"
-                           visible="false" label="msg://ru.thedevs.entity.view.baseUser/passwordField.label"/>
+                           visible="false" label="msg://ru.thedevs.entities.view.baseUser/passwordField.label"/>
             <passwordField id="confirmPasswordField"
-                           label="msg://ru.thedevs.entity.view.baseUser/confirmPassword"
+                           label="msg://ru.thedevs.entities.view.baseUser/confirmPassword"
                            required="true"
                            visible="false"/>
             <textField id="emailField" property="email"/>
