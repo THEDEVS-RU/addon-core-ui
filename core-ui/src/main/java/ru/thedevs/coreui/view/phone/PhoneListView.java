@@ -44,15 +44,7 @@ public class PhoneListView extends StandardListView<Phone> {
     private ApplicationEventPublisher applicationEventPublisher;
 
     @ViewComponent
-    private JmixButton editButton;
-    @ViewComponent
-    private JmixButton exportButton;
-    @ViewComponent
     private JmixButton blockButton;
-    @ViewComponent
-    private JmixButton removeButton;
-    @ViewComponent
-    private JmixButton multiCreateBtn;
     @ViewComponent
     private JmixButton updateStatusPhoneBtn;
 
@@ -109,16 +101,6 @@ public class PhoneListView extends StandardListView<Phone> {
         }
     }
 
-//    @Install(to = "phonesDataGrid", subject = "styleProvider")
-//    protected String phoneTableStyleProvider(Phone phone, String property) {
-//        if (property == null) {
-//            if (!phone.getActive()) {
-//                return StyleName.STRIKE_THROUGH.getId();
-//            }
-//        }
-//        return null;
-//    }
-
     private void showNotify(String key) {
         notifications.create("phoneChangedStatus", messages.getMessage(key))
                 .withPosition(Notification.Position.BOTTOM_END)
@@ -146,12 +128,6 @@ public class PhoneListView extends StandardListView<Phone> {
             }
         }
         phonesDl.load();
-    }
-
-    @Subscribe("multiCreateBtn")
-    public void onMultiCreateBtnClick(final ClickEvent<JmixButton> event) {
-//        viewNavigators.view(this, MultiUploadByIccid.class)
-//                .navigate();
     }
 
     @Subscribe(id = "updateStatusPhoneBtn", subject = "clickListener")

@@ -8,7 +8,7 @@ buildscript {
 }
 
 group = 'ru.thedevs'
-version = '2.6.1.3'
+version = '2.6.1.5'
 
 subprojects {
     apply plugin: 'java-library'

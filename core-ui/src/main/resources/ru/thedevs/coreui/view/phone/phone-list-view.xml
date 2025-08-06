@@ -6,9 +6,7 @@
     <data>
         <collection id="phonesDc"
                     class="ru.thedevs.entities.Phone">
-            <fetchPlan extends="_base">
-                <property name="unit" fetchPlan="_instance_name"/>
-            </fetchPlan>
+            <fetchPlan extends="_base"/>
             <loader id="phonesDl" readOnly="true">
                 <query>
                     <![CDATA[select e from Phone e]]>
@@ -57,7 +55,6 @@
                 <column property="number">
                     <numberRenderer numberFormat="+7##########"/>
                 </column>
-                <column property="unit"/>
                 <column property="blockDate"/>
                 <column property="blockReason"/>
                 <column property="tenant" visible="false"/>
